@@ -1,0 +1,12 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+
+apply from: 'repositories.gradle'
+apply from: 'dependencies.gradle'
+apply from: 'test.gradle'
+
+wrapper {
+    gradleVersion = '4.10'
+}
