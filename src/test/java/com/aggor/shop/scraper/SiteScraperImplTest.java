@@ -20,8 +20,8 @@ import static org.jsoup.Jsoup.connect;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
-public class SiteScraperTest extends BaseTest {
-    private final SiteScraper sut = new SiteScraper();
+public class SiteScraperImplTest extends BaseTest {
+    private final SiteScraperImpl sut = new SiteScraperImpl();
 
     private final String baseUrl = "https://localhost:8443";
 
