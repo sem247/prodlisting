@@ -1,0 +1,13 @@
+{
+  "results": [
+    {
+      "title": "Sainsbury's Strawberries 400g",
+      "unit_price": 1.75,
+      "description": "by Sainsbury's strawberries"
+    }
+  ],
+  "total": {
+    "gross": 1.75,
+    "vat": 0.29
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "results": [
+    {
+      "title": "Sainsbury's Strawberries 400g",
+      "kcal_per_100g": 33,
+      "unit_price": 1.75,
+      "description": "by Sainsbury's strawberries"
+    }
+  ],
+  "total": {
+    "gross": 1.75,
+    "vat": 0.29
+  }
+}
