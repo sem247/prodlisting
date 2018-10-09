@@ -13,6 +13,12 @@ Another area I would look to improve is to use an IoC library like [Dagger 2](ht
 
 How to run
 ----------
+The project comes bundled with gradle wrapper
+
 Navigate to the project's root directory and run the following command:
 
     ./gradlew run
+    
+Similarly, from the project's root directory, to run the tests:
+
+    ./gradlew clean test    
