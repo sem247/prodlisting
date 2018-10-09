@@ -13,5 +13,6 @@ Another area I would look to improve is to use an IoC library like [Dagger 2](ht
 
 How to run
 ----------
+Navigate to the project's root directory and run the following command:
 
     ./gradlew run
