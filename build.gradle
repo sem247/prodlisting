@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin:'application'
 apply plugin: 'idea'
 
 sourceCompatibility = 1.8
@@ -10,3 +11,5 @@ apply from: 'test.gradle'
 wrapper {
     gradleVersion = '4.10'
 }
+
+mainClassName = "com.aggor.shop.ProductListingProducer"
