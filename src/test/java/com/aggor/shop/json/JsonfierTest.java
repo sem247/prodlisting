@@ -4,9 +4,6 @@ import com.aggor.shop.BaseTest;
 import com.aggor.shop.model.Item;
 import com.aggor.shop.model.Items;
 import com.aggor.shop.model.Total;
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -20,12 +17,10 @@ import static org.junit.Assert.assertThat;
 
 public class JsonfierTest extends BaseTest {
     private final Jsonfier sut = JsonfierProvider.provideJsonfier();
-    private final JsonParser jsonParser = new JsonParser();
-    private final Gson gson = new Gson();
 
     @Test
     public void testJsonfyItemsWhenResultsIsEmpty() throws Exception {
-        final String expectedJson = getExpectation("json/empty_results.json");
+        final String expectedJson = getExpectationJson("json/empty_results.json");
 
         final Total total = new Total(new BigDecimal("0.00"), new BigDecimal("0.00"));
         final Items items = new Items(emptyList(), total);
@@ -37,7 +32,7 @@ public class JsonfierTest extends BaseTest {
 
     @Test
     public void testJsonfyItemsWhenResultsHasSingleItem() throws Exception {
-        final String expectedJson = getExpectation("json/single_item.json");
+        final String expectedJson = getExpectationJson("json/single_item.json");
 
         final List<Item> listing = singletonList(
                 new Item("Sainsbury's Strawberries 400g", 33, new BigDecimal("1.75"), "by Sainsbury's strawberries")
@@ -52,7 +47,7 @@ public class JsonfierTest extends BaseTest {
 
     @Test
     public void testJsonfyItemsWhenResultsHasMultipleItems() throws Exception {
-        final String expectedJson = getExpectation("json/multiple_items.json");
+        final String expectedJson = getExpectationJson("json/multiple_items.json");
 
         final List<Item> listing = asList(
                 new Item("Sainsbury's Strawberries 400g", 33, new BigDecimal("1.75"), "by Sainsbury's strawberries"),
@@ -69,7 +64,7 @@ public class JsonfierTest extends BaseTest {
 
     @Test
     public void testJsonfyItemsWhenItemHasNoKcal() throws Exception {
-        final String expectedJson = getExpectation("json/no_kcal_item.json");
+        final String expectedJson = getExpectationJson("json/no_kcal_item.json");
 
         final List<Item> listing = singletonList(
                 new Item("Sainsbury's Strawberries 400g", null, new BigDecimal("1.75"), "by Sainsbury's strawberries")
@@ -80,13 +75,5 @@ public class JsonfierTest extends BaseTest {
         final String json = sut.toJson(items);
 
         assertThat(json, is(expectedJson));
-    }
-
-    private String getExpectation(String file) throws Exception {
-        final String fileContent = getFileContent(file);
-
-        final JsonElement jsonElement = jsonParser.parse(fileContent);
-
-        return gson.toJson(jsonElement);
     }
 }
