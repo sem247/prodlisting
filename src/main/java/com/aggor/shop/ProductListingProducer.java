@@ -18,4 +18,11 @@ public class ProductListingProducer {
 
         return jsonfier.toJson(items);
     }
+
+    public static void main(String[] args) throws Exception {
+        final ProductListingProducer productListingProducer = new ProductListingProducer();
+        final String json = productListingProducer.getItemsAsJson();
+
+        System.out.println(json);
+    }
 }
